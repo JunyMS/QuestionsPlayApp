@@ -104,3 +104,4 @@ class Juego:
         self.ultima_pregunta = pregunta
         self.turno += 1
         return pregunta  # Devuelve la pregunta para mostrarla en Streamlit
+        #
