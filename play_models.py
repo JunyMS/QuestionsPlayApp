@@ -63,28 +63,7 @@ class BancoPreguntas:
         return random.choice(candidatas) if candidatas else None
 
 
-# class Juego:
-#     def __init__(self, jugadores: list, banco: BancoPreguntas):
-#         self.jugadores = jugadores
-#         self.banco = banco
-#         self.turno = 0
 
-#     def siguiente_turno(self, categoria: Optional[str] = None):
-#         jugador_actual = self.jugadores[self.turno % len(self.jugadores)]
-#         otros = [j for j in self.jugadores if j != jugador_actual]
-#         elegido = random.choice(otros)
-
-#         # permitir_15 = elegido.edad >= 15  # solo si la persona objetivo es mayor de edad
-#         preg = self.banco.aleatoria(categoria)
-
-#         print(f"\n🎯 Turno de {jugador_actual.nombre}")
-#         print(f"{jugador_actual.nombre} pregunta a {elegido.nombre}:")
-#         if preg:
-#             print(f"👉 {preg.texto}  [{preg.categoria}]")
-#         else:
-#             print("No hay preguntas disponibles con esos filtros. Elige otra categoría o baja la intensidad.")
-
-#         self.turno += 1
 
 class Juego:
     def __init__(self, jugadores: list, banco: BancoPreguntas):
@@ -93,12 +72,11 @@ class Juego:
         self.turno = 0
         self.ultima_pregunta = None
         self.jugador_actual = None
-        self.jugador_objetivo = None
 
     def siguiente_turno(self, categoria: Optional[str] = None) -> Optional[Pregunta]:
         self.jugador_actual = self.jugadores[self.turno % len(self.jugadores)]
-        otros = [j for j in self.jugadores if j != self.jugador_actual]
-        self.jugador_objetivo = random.choice(otros)
+        # otros = [j for j in self.jugadores if j != self.jugador_actual]
+        # self.jugador_objetivo = random.choice(otros)
 
         pregunta = self.banco.aleatoria(categoria)
         self.ultima_pregunta = pregunta
